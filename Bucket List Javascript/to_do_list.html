@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: cyan;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .bucketListItem:hover {
+      cursor: pointer;
+    }
+    .toDoList {
+      display: grid;
+      align-items: center;
+      color: darkblue;
+    }
+    .toDoList input {
+      width: 50%;
+    }
+    .toDoList button {
+      width: 50.5%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toDoList">
+
+    <h1>Bucket List</h1>
+    <input type="text" id="bucketList" />
+    <button onclick="addList()">Add to List</button> 
+
+    <ul id='list'>
+        <li class="bucketListItem">See New Zealand</li>
+        <li class="bucketListItem">Run a Marathon</li>
+        <li class="bucketListItem">Go on a Safari</li>
+        <li class="bucketListItem">Go Whale Watching</li>
+        <li class="bucketListItem">Teach my children to be like Jesus</li>
+        <li class="bucketListItem">Learn to Tap Dance</li>
+        <li class="bucketListItem">Give all my Heart to my family</li>
+        <li class="bucketListItem">Start a Business</li>
+        <li class="bucketListItem">Build a Tree House</li>
+        <li class="bucketListItem">Go Snorkeling</li>
+        <li class="bucketListItem">Scuba Diving</li>
+        <li class="bucketListItem">Teach my kids to Snowboard</li>
+        <li class="bucketListItem">Teach my kids other Cultures</li>
+        <li class="bucketListItem">Do a Multipitch Rock Climb</li>
+        <li class="bucketListItem">Be in a Fitness Competition</li>
+        <li class="bucketListItem">Learn to Code</li>
+        
+    </ul>
+
+    <h2>The ways I have REALLY lived</h2>
+    <ul class="completedBucketList">
+        <div class="completed"></div>
+    </ul>
+
+
+</div>
+  <script>
+    function addList() {
+      var ul = document.getElementById('list');
+      var text = document.getElementById('bucketList');
+      var li = document.createElement('li');
+      li.setAttribute('class', bucketList.value);
+      li.appendChild(document.createTextNode(bucketList.value));
+      ul.appendChild(li);
+    }
+
+    const bucketItem = document.querySelectorAll('.bucketListItem');
+    const completedItems = document.querySelector('.completed');
+    const completedBucketList = document.querySelector('.completedBucketList');
+
+    bucketItem.forEach(bucket => bucket.addEventListener('click', (event) => {
+      let completedItem = document.createElement('li');
+      let bucketItemContent = document.createTextNode(bucket.textContent);
+      completedItem.appendChild(bucketItemContent);
+      completedBucketList.insertBefore(completedItem, completedItems);
+      bucket.remove();
+    }));
+
+  </script>
+</body>
+</html>

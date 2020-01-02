@@ -1,0 +1,1 @@
+Give users a set amount of tries and be able to change the word
